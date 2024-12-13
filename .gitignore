@@ -36,3 +36,30 @@ out/
 
 ### VS Code ###
 .vscode/
+
+# 운영체제
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 로그 파일
+spring.log
+*.log
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# 환경 변수
+*.env
+*.properties
+
+# 테스트 결과
+/test-output/
+coverage/
+*.out
+
+# IDE 추가 항목
+*.bak
+*.old
