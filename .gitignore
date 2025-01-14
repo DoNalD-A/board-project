@@ -53,7 +53,6 @@ docker-compose.yml
 
 # 환경 변수
 *.env
-*.properties
 
 # 테스트 결과
 /test-output/
