@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>main</title>
     <style>
         body {
-            background-color: gray;
+            /*background-color: gray;*/
         }
-
         #wrap {
             display: flex;
             padding: 0 30px;
@@ -25,10 +24,21 @@
     </style>
 </head>
 <body>
-<div id="wrap">
-    <div id="header">header</div>
-    <div id="container">container</div>
-    <div id="footer">footer</div>
+<!--<div id="wrap">-->
+<!--    <div id="header">header</div>-->
+<!--    <div id="container">container</div>-->
+<!--    <div id="footer">footer</div>-->
+<!--</div>-->
+
+<div>
+    <ul>
+        <li th:each="post : ${posts}">
+            <p th:text="|제목: ${post.title}|"></p>
+            <p th:text="|내용: ${post.content}|"></p>
+            <p th:text="|생성날짜: ${post.created_date}|"></p>
+        </li>
+    </ul>
 </div>
+
 </body>
 </html>
