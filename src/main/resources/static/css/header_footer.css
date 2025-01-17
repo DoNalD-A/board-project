@@ -1,0 +1,79 @@
+html, body {
+    height: 100%;
+    color: #3a913e;
+}
+
+#wrap {
+    display: flex;
+    flex-direction: column;
+    margin: 0% 20%;
+    min-height: 100vh;
+}
+
+#header {
+    display: flex;
+    align-items: center;
+    height: 20%;
+    border-bottom: 1px solid #3a913e;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 25px 0 50px 0;
+}
+
+#header_left {
+    font-size: 40px;
+    width: 60%;
+    height: 40%;
+}
+
+/* 크기에 맞춰 글자가 줄어드는 코드 */
+#header_right {
+    width: 40%;  /* 600px에서 변경 */
+    overflow: hidden;
+}
+
+#header_right ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin: 0;
+    padding: 0;
+    font-size: clamp(14px, 1.5vw, 20px);  /* 추가: 반응형 글자 크기 */
+}
+
+#header_right li {
+    margin-right: 1.5%;  /* 15px에서 변경 */
+    padding: 0.5em 0.8em;  /* 8px 12px에서 변경 */
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+/* 미디어 쿼리 추가 */
+@media screen and (max-width: 1200px) {
+    #header_right {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    #header_right {
+        width: 60%;
+    }
+
+    #header_right li {
+        margin-right: 1%;
+        padding: 0.4em 0.6em;
+    }
+}
+
+#footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+    background-color: #f1f3f8; /* 밝은 그레이 */
+    font-size: 20px;
+}

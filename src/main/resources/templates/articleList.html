@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>articleList</title>
+    <link href="/css/header_footer.css" rel="stylesheet">
+    <style>
+        #container {
+            /*height: 70%;*/
+            flex: 1;
+        }
+
+        #container a {
+            text-decoration-line: none;
+            color: #3a913e;
+        }
+
+        #container ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        #container li {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        #container li p {
+            margin: 5px 0;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+<!--
+article 테이블 출력하는 코드
+<div>
+    <ul>
+        <li th:each="post : ${posts}">
+            <p th:text="|제목: ${post.title}|"></p>
+            <p th:text="|내용: ${post.content}|"></p>
+            <p th:text="|생성날짜: ${post.created_date}|"></p>
+        </li>
+    </ul>
+</div>
+-->
+<div id="wrap">
+    <div id="header">
+        <div id="header_left">블로그</div>
+        <div id="header_right">
+            <ul>
+                <li>새글쓰기</li>
+                <li>내정보</li>
+                <li>내블로그</li>
+                <li>로그아웃</li>
+            </ul>
+        </div>
+    </div>
+    <div id="container">
+        <div>
+            <ul>
+                <li th:each="post : ${posts}">
+                    <!-- 글 상세 페이지로 이동하기-->
+                    <a href="/www.naver.com">
+                        <p><strong>제목:</strong> <span th:text="${post.title}"></span></p>
+                        <p><strong>내용:</strong> <span th:text="${post.content}"></span></p>
+                        <p><strong>생성날짜:</strong> <span th:text="${post.created_date}"></span></p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="footer">
+        © 2025 송민석 블로그 All rights reserved.
+    </div>
+</div>
+
+</body>
+</html>

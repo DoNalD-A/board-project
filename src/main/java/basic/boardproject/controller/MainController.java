@@ -24,6 +24,11 @@ public class MainController {
          * 모델에 담기
          * 반환하기*/
 
-        return "main";
+        return "articleList";
+    }
+
+    @GetMapping("/test")
+    public String test(){
+        return "article";
     }
 }
