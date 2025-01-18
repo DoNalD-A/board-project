@@ -50,6 +50,11 @@ html, body {
     cursor: pointer;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 /* 미디어 쿼리 추가 */
 @media screen and (max-width: 1200px) {
     #header_right {
