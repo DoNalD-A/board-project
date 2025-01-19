@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="/css/header_footer.css" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            color: #3a913e;
+        }
+
+        #wrap {
+            display: flex;
+            flex-direction: column;
+            margin: 0% 20%;
+            min-height: 100vh;
+        }
+
+        #header {
+            display: flex;
+            align-items: center;
+            height: 20%;
+            border-bottom: 1px solid #3a913e;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 25px 0 50px 0;
+        }
+
+        #header_left {
+            font-size: 40px;
+            width: 60%;
+            height: 40%;
+        }
+
+        /* 크기에 맞춰 글자가 줄어드는 코드 */
+        #header_right {
+            width: 40%; /* 600px에서 변경 */
+            overflow: hidden;
+        }
+
+        #header_right ul {
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            flex-wrap: nowrap;
+            margin: 0;
+            padding: 0;
+            font-size: clamp(14px, 1.5vw, 20px); /* 추가: 반응형 글자 크기 */
+        }
+
+        #header_right li {
+            margin-right: 1.5%; /* 15px에서 변경 */
+            padding: 0.5em 0.8em; /* 8px 12px에서 변경 */
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* 미디어 쿼리 추가 */
+        @media screen and (max-width: 1200px) {
+            #header_right {
+                width: 50%;
+            }
+        }
+
+        @media screen and (max-width: 900px) {
+            #header_right {
+                width: 60%;
+            }
+
+            #header_right li {
+                margin-right: 1%;
+                padding: 0.4em 0.6em;
+            }
+        }
+
+        #footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 30px;
+            background-color: #f1f3f8; /* 밝은 그레이 */
+            font-size: 20px;
+        }
+
+        /* main 레이아웃 확인용*/
+        div {
+            border: 1px solid black;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            min-height: 100%;
+            gap: 20px;
+        }
+
+        #title {
+            /*height: 30%;*/
+            flex: 1;
+            background-color: lightgreen;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        #content {
+            /*height: 70%;*/
+            flex: 4;
+            background-color: lightblue;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <div id="header">
+        <div id="header_left">블로그</div>
+        <div id="header_right">
+            <ul>
+                <li><a href="/">새글쓰기</a></li>
+                <li><a href="/">내정보</a></li>
+                <li><a href="/">내블로그</a></li>
+                <li><a href="/">로그아웃</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="container">
+        <div id="title">title</div>
+        <div id="content">contents</div>
+    </div>
+    <div id="footer">
+        © 2025 송민석 블로그 All rights reserved.
+    </div>
+</div>
+</body>
+</html>
