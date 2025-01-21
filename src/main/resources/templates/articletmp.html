@@ -30,17 +30,23 @@
 
         #header_left {
             font-size: 40px;
-            width: 60%;
+            width: auto;
             height: 40%;
         }
 
         #icon {
             background-size: cover;
+            width:auto;
+        }
+        #icon img{
+            width: 50px;
+            height: 50px;
         }
 
         /* 크기에 맞춰 글자가 줄어드는 코드 */
         #header_right {
-            width: 40%; /* 600px에서 변경 */
+            /*width: 100%; !* 600px에서 변경 *!*/
+            flex:1;
             overflow: hidden;
         }
 
@@ -130,7 +136,7 @@
 <div id="wrap">
     <div id="header">
         <div id="header_left">블로그</div>
-<!--        <div id="icon"><img src="/static/image/cat.png"></div>-->
+        <div id="icon"><img src="/static/image/cat.png"></div>
         <div id="header_right">
             <ul>
                 <li><a href="/">새글쓰기</a></li>

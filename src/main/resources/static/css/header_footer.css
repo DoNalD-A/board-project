@@ -13,6 +13,7 @@ html, body {
 #header {
     display: flex;
     align-items: center;
+    gap: 10px;
     height: 20%;
     border-bottom: 1px solid #3a913e;
     font-size: 20px;
@@ -22,13 +23,23 @@ html, body {
 
 #header_left {
     font-size: 40px;
-    width: 60%;
+    width: auto;
     height: 40%;
+}
+
+#icon {
+    background-size: cover;
+    width:auto;
+}
+#icon img{
+    width: 50px;
+    height: 50px;
 }
 
 /* 크기에 맞춰 글자가 줄어드는 코드 */
 #header_right {
-    width: 40%;  /* 600px에서 변경 */
+    /*width: 100%; !* 600px에서 변경 *!*/
+    flex:1;
     overflow: hidden;
 }
 
@@ -40,12 +51,12 @@ html, body {
     flex-wrap: nowrap;
     margin: 0;
     padding: 0;
-    font-size: clamp(14px, 1.5vw, 20px);  /* 추가: 반응형 글자 크기 */
+    font-size: clamp(14px, 1.5vw, 20px); /* 추가: 반응형 글자 크기 */
 }
 
 #header_right li {
-    margin-right: 1.5%;  /* 15px에서 변경 */
-    padding: 0.5em 0.8em;  /* 8px 12px에서 변경 */
+    margin-right: 1.5%; /* 15px에서 변경 */
+    padding: 0.5em 0.8em; /* 8px 12px에서 변경 */
     white-space: nowrap;
     cursor: pointer;
 }

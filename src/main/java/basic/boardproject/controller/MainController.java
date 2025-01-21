@@ -27,8 +27,14 @@ public class MainController {
         return "articleList";
     }
 
-    @GetMapping("/test")
-    public String test(){
+    @GetMapping("/article")
+    public String article() {
         return "article";
     }
+
+    @GetMapping("/articletmp")
+    public String articletmp() {
+        return "articletmp";
+    }
+
 }
