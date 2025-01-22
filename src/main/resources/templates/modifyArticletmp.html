@@ -1,3 +1,4 @@
+<!--원본 / 대피중-->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -194,10 +195,11 @@
         #buttons {
             display: flex;
             justify-content: flex-end;
-            gap:10px;
+            gap: 10px;
             margin-bottom: 5px;
 
         }
+
         button {
             padding: 10px 20px; /* 버튼의 내부 여백 */
             font-size: 16px; /* 글자 크기 */
@@ -244,22 +246,24 @@
             </ul>
         </div>
     </div>
-    <form action="/newArticle" method="post">
+    <form action="/modifyArticle" method="post"> <!-- method를 post로 변경 -->
+        <input type="hidden" name="id" value="${id}"> <!-- id를 전송하는 숨은 필드 추가 -->
         <div id="container">
             <div id="title">
                 <div id="title-main">제목:&nbsp</div>
-                <input id=title_input type="text" placeholder="제목을 입력하세요" name="title">
+                <input id="title_input" type="text" name="title" th:value="${title}" required>
             </div>
             <div id="content">
                 <div id="content-main">
-                    <textarea id="content_input" placeholder="내용을 입력하세요" name="content"></textarea>
+                    <textarea id="content_input" name="content" required th:text="${content}"></textarea>
                 </div>
             </div>
         </div>
         <div id="buttons">
-            <button>생성</button>
+            <button type="submit">수정완료</button>
         </div>
     </form>
+
     <div id="footer">
         © 2025 송민석 블로그 All rights reserved.
     </div>

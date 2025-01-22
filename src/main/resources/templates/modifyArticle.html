@@ -1,3 +1,4 @@
+<!--원본 / 대피중-->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -194,10 +195,11 @@
         #buttons {
             display: flex;
             justify-content: flex-end;
-            gap:10px;
+            gap: 10px;
             margin-bottom: 5px;
 
         }
+
         button {
             padding: 10px 20px; /* 버튼의 내부 여백 */
             font-size: 16px; /* 글자 크기 */
@@ -244,22 +246,42 @@
             </ul>
         </div>
     </div>
-    <form action="/newArticle" method="post">
+    <!--    <form action="/modifyArticle" method="post"> &lt;!&ndash; method를 post로 변경 &ndash;&gt;-->
+    <!--        <input type="hidden" name="id" value="${id}"> &lt;!&ndash; id를 전송하는 숨은 필드 추가 &ndash;&gt;-->
+    <!--        <div id="container">-->
+    <!--            <div id="title">-->
+    <!--                <div id="title-main">제목:&nbsp</div>-->
+    <!--                <input id="title_input" type="text" name="title" th:value="${title}" required>-->
+    <!--            </div>-->
+    <!--            <div id="content">-->
+    <!--                <div id="content-main">-->
+    <!--                    <textarea id="content_input" name="content" th:text="${content}" required></textarea>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--        <div id="buttons">-->
+    <!--            <button type="submit">수정하기</button>-->
+    <!--        </div>-->
+    <!--    </form>-->
+    <form th:action="@{/modifyArticle}" th:method="post"> <!-- Thymeleaf 문법 사용 -->
+        <input type="hidden" name="id" th:value="${id}"> <!-- id를 숨은 필드로 전달 -->
         <div id="container">
             <div id="title">
                 <div id="title-main">제목:&nbsp</div>
-                <input id=title_input type="text" placeholder="제목을 입력하세요" name="title">
+                <input id="title_input" type="text" name="title" th:value="${title}" required> <!-- 제목 값 설정 -->
             </div>
             <div id="content">
                 <div id="content-main">
-                    <textarea id="content_input" placeholder="내용을 입력하세요" name="content"></textarea>
+                    <textarea id="content_input" name="content" th:text="${content}" required></textarea>
+                    <!-- 내용 값 설정 -->
                 </div>
             </div>
         </div>
         <div id="buttons">
-            <button>생성</button>
+            <button type="submit">수정하기</button> <!-- 수정 버튼 -->
         </div>
     </form>
+
     <div id="footer">
         © 2025 송민석 블로그 All rights reserved.
     </div>

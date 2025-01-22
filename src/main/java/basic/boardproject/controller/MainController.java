@@ -1,16 +1,17 @@
 package basic.boardproject.controller;
 
+import basic.boardproject.domain.Posts;
+import basic.boardproject.dto.PostModifyDto;
 import basic.boardproject.dto.PostNewResponseDto;
 import basic.boardproject.dto.PostResponseAllDto;
 import basic.boardproject.dto.PostResponseOneDto;
 import basic.boardproject.service.PostService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -57,4 +58,30 @@ public class MainController {
 
         return "redirect:/";
     }
+
+    @GetMapping("/modifyArticle")
+    public String modifyArticle(@RequestParam Long id,
+                                Model model) {
+        PostModifyDto postModifyDto = postService.findByIdModify(id);
+//        model.addAttribute("posts", postModifyDto);
+
+        model.addAttribute("id", id);
+        model.addAttribute("title", postModifyDto.getTitle());
+        model.addAttribute("content", postModifyDto.getContent());
+
+        return "modifyArticle";
+    }
+
+    @PostMapping("/modifyArticle")
+    public String postModifyArticle(@RequestParam Long id,
+                                    @RequestParam String title,
+                                    @RequestParam String content) {
+        PostModifyDto postModifyDto = new PostModifyDto(id, title, content);
+//        Posts posts = postService.update(id, postModifyDto);
+        postService.update(id, postModifyDto);
+
+        return "redirect:/";
+    }
+
+
 }

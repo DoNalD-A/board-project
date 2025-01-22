@@ -4,10 +4,12 @@ import basic.boardproject.dto.PostNewResponseDto;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
 @Entity
+@Setter
 @Getter
 @NoArgsConstructor
 public class Posts {
@@ -34,5 +36,10 @@ public class Posts {
     public Posts(PostNewResponseDto postNewResponseDto) {
         this.title = postNewResponseDto.getTitle();
         this.content = postNewResponseDto.getContent();
+    }
+
+    public void update(String title, String content) {
+        this.title = title;
+        this.content = content;
     }
 }
