@@ -1,11 +1,13 @@
 package basic.boardproject.controller;
 
-import basic.boardproject.dto.PostResponseDto;
+import basic.boardproject.dto.PostResponseAllDto;
+import basic.boardproject.dto.PostResponseOneDto;
 import basic.boardproject.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -17,8 +19,8 @@ public class MainController {
 
     @GetMapping("/")
     public String index(Model model) {
-        List<PostResponseDto> postResponseDtoList = postService.findAll();
-        model.addAttribute("posts", postResponseDtoList);
+        List<PostResponseAllDto> postResponseAllDtoList = postService.findAll();
+        model.addAttribute("posts", postResponseAllDtoList);
         /*
          * 서비스에 넘겨서 리스트로 받아오기
          * 모델에 담기
@@ -32,9 +34,13 @@ public class MainController {
         return "article";
     }
 
-    @GetMapping("/articletmp")
-    public String articletmp() {
-        return "articletmp";
+    @GetMapping("/article/{id}")
+    public String article(@PathVariable Long id, Model model) {
+        PostResponseOneDto postResponseOneDto = postService.findById(id);
+        model.addAttribute("posts", postResponseOneDto);
+
+        return "article";
+
     }
 
 }

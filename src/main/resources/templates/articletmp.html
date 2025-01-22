@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link href="/css/header_footer.css" rel="stylesheet">
     <style>
         html, body {
             height: 100%;
@@ -36,9 +35,10 @@
 
         #icon {
             background-size: cover;
-            width:auto;
+            width: auto;
         }
-        #icon img{
+
+        #icon img {
             width: 50px;
             height: 50px;
         }
@@ -46,7 +46,7 @@
         /* 크기에 맞춰 글자가 줄어드는 코드 */
         #header_right {
             /*width: 100%; !* 600px에서 변경 *!*/
-            flex:1;
+            flex: 1;
             overflow: hidden;
         }
 
@@ -102,10 +102,9 @@
         }
 
         /* main 레이아웃 확인용*/
-        div {
-            border: 1px solid black;
-        }
-
+        /*div {*/
+        /*    border: 1px solid black;*/
+        /*}*/
         #container {
             display: flex;
             flex-direction: column;
@@ -115,19 +114,47 @@
         }
 
         #title {
-            /*height: 30%;*/
+
+            display: flex; /* Flexbox 컨테이너로 설정 */
+            flex-direction: column; /* 자식 요소를 세로 방향으로 배치 */
+            align-items: center; /* 자식 요소를 가로 방향으로 가운데 정렬 */
+            justify-content: center; /* 세로 방향으로 간격 배분 */
             flex: 1;
-            background-color: lightgreen;
-            padding: 20px;
+            padding: 5px;
             border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+
+        #title-main {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        #title-header {
+            display: flex; /* Flexbox로 설정 */
+            justify-content: center; /* 자식 요소를 가로 방향으로 중앙 정렬 */
+            align-items: center; /* 자식 요소를 세로 방향으로 중앙 정렬 */
+            width: 100%; /* 부모의 전체 너비 차지 */
+            margin-bottom: 10px; /* 아래 공간 확보 */
+        }
+
+        #title-meta {
+            align-self: flex-end; /* 부모의 오른쪽 끝으로 배치 */
+            color: #666;
+            font-size: 14px;
         }
 
         #content {
-            /*height: 70%;*/
             flex: 10;
-            background-color: lightblue;
-            padding: 20px;
+            padding: 20px 10px;
             border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        #content-main {
+            line-height: 1.6;
+            white-space: pre-wrap;
         }
 
     </style>
@@ -135,7 +162,7 @@
 <body>
 <div id="wrap">
     <div id="header">
-        <div id="header_left">블로그</div>
+        <div id="header_left">블로그</div>ㅋ
         <div id="icon"><img src="/static/image/cat.png"></div>
         <div id="header_right">
             <ul>
@@ -147,8 +174,20 @@
         </div>
     </div>
     <div id="container">
-        <div id="title">title</div>
-        <div id="content">contents</div>
+        <div id="title" th:each="post: ${posts}">
+            <div id="title-header">
+                <span id="title-main" th:text="${post.title}">제목</span>
+            </div>
+            <div id="title-meta">
+                <span th:text="${#temporals.format(post.created_date, 'yyyy년 M월 d일 HH시 mm분')}">작성일</span>
+            </div>
+
+        </div>
+        <div id="content" th:each="post: ${posts}">
+            <div id="content-main" th:text="${post.content}">
+                내용
+            </div>
+        </div>
     </div>
     <div id="footer">
         © 2025 송민석 블로그 All rights reserved.

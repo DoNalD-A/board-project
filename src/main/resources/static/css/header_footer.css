@@ -29,9 +29,10 @@ html, body {
 
 #icon {
     background-size: cover;
-    width:auto;
+    width: auto;
 }
-#icon img{
+
+#icon img {
     width: 50px;
     height: 50px;
 }
@@ -39,7 +40,7 @@ html, body {
 /* 크기에 맞춰 글자가 줄어드는 코드 */
 #header_right {
     /*width: 100%; !* 600px에서 변경 *!*/
-    flex:1;
+    flex: 1;
     overflow: hidden;
 }
 
