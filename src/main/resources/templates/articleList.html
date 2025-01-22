@@ -54,7 +54,7 @@ article 테이블 출력하는 코드
         <div id="icon"><img src="/image/cat.png"></div>
         <div id="header_right">
             <ul>
-                <li><a href="/">새글쓰기</a></li>
+                <li><a href="/newArticle">새글쓰기</a></li>
                 <li><a href="/">내정보</a></li>
                 <li><a href="/">내블로그</a></li>
                 <li><a href="/">로그아웃</a></li>
@@ -69,7 +69,7 @@ article 테이블 출력하는 코드
                     <a href="/www.naver.com">
                         <p><strong>제목:</strong> <span th:text="${post.title}"></span></p>
                         <p><strong>내용:</strong> <span th:text="${post.content}"></span></p>
-                        <p><strong>생성날짜:</strong> <span th:text="${post.created_date}"></span></p>
+                        <p><strong>생성날짜:</strong> <span th:text="${#temporals.format(post.created_date, 'yyyy년 M월 d일 HH시 mm분')}"></span></p>
                     </a>
                 </li>
             </ul>

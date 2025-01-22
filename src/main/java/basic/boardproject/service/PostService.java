@@ -1,6 +1,7 @@
 package basic.boardproject.service;
 
 import basic.boardproject.domain.Posts;
+import basic.boardproject.dto.PostNewResponseDto;
 import basic.boardproject.dto.PostResponseAllDto;
 import basic.boardproject.dto.PostResponseOneDto;
 import basic.boardproject.repository.PostRepository;
@@ -37,5 +38,10 @@ public class PostService {
         PostResponseOneDto postResponseOneDto = new PostResponseOneDto(posts.get());
         return postResponseOneDto;
 //        return new PostResponseOneDto(posts.get());
+    }
+
+    public void save(PostNewResponseDto postNewResponseDto) {
+        Posts posts = new Posts(postNewResponseDto);
+        postRepository.save(posts);
     }
 }
