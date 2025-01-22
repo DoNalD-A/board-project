@@ -140,6 +140,10 @@
             <input type="hidden" name="content" th:value="${posts.content}">
             <button type="submit">수정</button>
         </form>
+        <form action="/deleteArticle" method="post">
+            <input type="hidden" name="id" th:value="${id}">
+            <button type="submit">삭제</button>
+        </form>
     </div>
     <div id="footer">
         © 2025 송민석 블로그 All rights reserved.

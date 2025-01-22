@@ -76,4 +76,8 @@ public class PostService {
         // 저장
         postRepository.save(post);
     }
+
+    public void deleteById(Long id) {
+        postRepository.deleteById(id);
+    }
 }

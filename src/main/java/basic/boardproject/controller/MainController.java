@@ -83,5 +83,9 @@ public class MainController {
         return "redirect:/";
     }
 
-
+    @PostMapping("/deleteArticle")
+    public String deleteArticle(@RequestParam Long id) {
+        postService.deleteById(id);
+        return "redirect:/";
+    }
 }
