@@ -88,4 +88,9 @@ public class MainController {
         postService.deleteById(id);
         return "redirect:/";
     }
+
+    @GetMapping("/luckyCat")
+    public String luckyCat(){
+        return "luckyCat";
+    }
 }

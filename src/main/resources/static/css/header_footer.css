@@ -1,3 +1,4 @@
+/*기본 레이아웃 작성*/
 html, body {
     height: 100%;
     color: #3a913e;
@@ -10,7 +11,7 @@ html, body {
     min-height: 100vh;
     justify-content: space-between;
 }
-
+/*header파트 속성*/
 #header {
     display: flex;
     align-items: center;
@@ -86,6 +87,7 @@ a {
     }
 }
 
+/*footer파트 속성*/
 #footer {
     display: flex;
     justify-content: center;
@@ -94,4 +96,41 @@ a {
     height: 30px;
     background-color: #f1f3f8; /* 밝은 그레이 */
     font-size: 20px;
+}
+/*button파트 속성*/
+#buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-bottom: 5px;
+
+}
+
+button {
+    padding: 10px 20px; /* 버튼의 내부 여백 */
+    font-size: 16px; /* 글자 크기 */
+    font-weight: bold; /* 글자 굵기 */
+    color: #ffffff; /* 텍스트 색상 */
+    background-color: #3a913e; /* 버튼 배경 색상 */
+    border: none; /* 기본 테두리 제거 */
+    border-radius: 5px; /* 버튼의 둥근 모서리 */
+    cursor: pointer; /* 마우스 포인터 변경 */
+    transition: all 0.3s ease-in-out; /* 부드러운 효과 추가 */
+}
+
+button:hover {
+    background-color: #2e7a32; /* 호버 시 배경 색상 변경 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 호버 시 그림자 추가 */
+    transform: scale(1.05); /* 약간 확대 */
+}
+
+button:active {
+    background-color: #276226; /* 클릭 시 배경 색상 변경 */
+    transform: scale(0.95); /* 살짝 축소 */
+}
+
+button:disabled {
+    background-color: #ccc; /* 비활성화 상태 배경 색상 */
+    cursor: not-allowed; /* 마우스 포인터 변경 */
+    opacity: 0.7; /* 투명도 추가 */
 }
