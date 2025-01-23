@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>signUp</title>
+    <link href="/css/header_footer.css" rel="stylesheet">
+    <style>
+        #container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+            min-height: 100%;
+            gap: 20px;
+        }
+
+        #signUpBox {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            ㅈ
+            align-items: center;
+            width: 450px;
+            height: 600px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* 그림자 추가 */
+        }
+
+        #signUpForm {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 350px;
+            height: 500px;
+        }
+
+        #signUpIcon {
+            width: 350px;
+            height: 200px;
+        }
+
+        #icon2 {
+            width: 100%; /* 부모 요소의 너비를 채움 */
+            height: 100%; /* 부모 요소의 높이를 채움 */
+            display: flex; /* 가운데 정렬을 위해 Flexbox 사용 가능 */
+            justify-content: center;
+            align-items: center;
+        }
+
+        #icon2 img {
+            max-width: 90%; /* 이미지가 부모 요소 너비를 넘지 않도록 */
+            max-height: 90%; /* 이미지가 부모 요소 높이를 넘지 않도록 */
+            object-fit: contain; /* 이미지 비율을 유지하며 부모 요소에 맞춤 */
+        }
+
+
+        #icon img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .signUp {
+            display: flex;
+            align-items: center;
+            width: 350px;
+            height: 80px;
+        }
+
+        .signUp-text {
+            flex: 1; /* 텍스트 크기 조정 */
+            font-size: 16px;
+            font-weight: bold;
+            color: #495057; /* 어두운 회색 텍스트 */
+        }
+
+        .signUp-input {
+            flex: 3; /* 입력 필드 크기 조정 */
+        }
+
+        .signUp-input input {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .signUp button {
+            justify-content: flex-end;
+        }
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <div id="header">
+        <div id="header_left">블로그</div>
+        <div id="icon"><img src="/image/cat.png"></div>
+        <div id="header_right">
+            <ul>
+                <li><a href="/">새글쓰기</a></li>
+                <li><a href="/">내정보</a></li>
+                <li><a href="/">내블로그</a></li>
+                <li><a href="/">로그아웃</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="container">
+        <div id="signUpBox">
+            <form id="signUpForm" action="/user/save" method="post">
+                <div id="signUpIcon">
+                    <div id="icon2"><img src="/image/Cat.png"></div>
+                </div>
+                <div class="signUp">
+                    <div class="signUp-text">아이디:</div>
+                    <div class="signUp-input"><input type="text" name="user_id" required></div>
+                </div>
+                <div class="signUp">
+                    <div class="signUp-text">비밀번호:</div>
+                    <div class="signUp-input"><input type="password" name="password" required></div>
+                </div>
+                <div class="signUp">
+                    <div class="signUp-text">이메일:</div>
+                    <div class="signUp-input"><input type="text" name="email" required></div>
+                </div>
+                <div class="signUp">
+                    <div id="buttons">
+                        <button type="submit">회원가입</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="footer">
+    © 2025 송민석 블로그 All rights reserved.
+</div>
+</div>
+</body>
+</html>

@@ -1,14 +1,8 @@
 package basic.boardproject.controller;
 
-import basic.boardproject.domain.Posts;
-import basic.boardproject.dto.PostModifyDto;
-import basic.boardproject.dto.PostNewResponseDto;
-import basic.boardproject.dto.PostResponseAllDto;
-import basic.boardproject.dto.PostResponseOneDto;
+import basic.boardproject.dto.*;
 import basic.boardproject.service.PostService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -17,10 +11,11 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Controller
-public class MainController {
+public class PostController {
 
     private final PostService postService;
 
+    //모든 게시글 조회
     @GetMapping("/")
     public String index(Model model) {
         List<PostResponseAllDto> postResponseAllDtoList = postService.findAll();
@@ -33,11 +28,7 @@ public class MainController {
         return "articleList";
     }
 
-    @GetMapping("/article")
-    public String article() {
-        return "article";
-    }
-
+    //게시글 1개 조회
     @GetMapping("/article/{id}")
     public String article(@PathVariable Long id, Model model) {
         PostResponseOneDto postResponseOneDto = postService.findById(id);
@@ -46,11 +37,13 @@ public class MainController {
         return "article";
     }
 
+    //게시글 생성
     @GetMapping("/newArticle")
     public String newArticle() {
         return "newArticle";
     }
 
+    //게시글 생성 API (?)
     @PostMapping("/newArticle")
     public String postNewArticle(@RequestParam String title, String content) {
         PostNewResponseDto postNewResponseDto = new PostNewResponseDto(title, content);
@@ -59,6 +52,7 @@ public class MainController {
         return "redirect:/";
     }
 
+    //게시글 수정
     @GetMapping("/modifyArticle")
     public String modifyArticle(@RequestParam Long id,
                                 Model model) {
@@ -72,6 +66,7 @@ public class MainController {
         return "modifyArticle";
     }
 
+    //게시글 수정 API(?)
     @PostMapping("/modifyArticle")
     public String postModifyArticle(@RequestParam Long id,
                                     @RequestParam String title,
@@ -83,14 +78,17 @@ public class MainController {
         return "redirect:/";
     }
 
+    //게시글 삭제 API(?)
     @PostMapping("/deleteArticle")
     public String deleteArticle(@RequestParam Long id) {
         postService.deleteById(id);
         return "redirect:/";
     }
 
+    //'고양이 아이콘 클릭' -> 행운고양이 페이지
     @GetMapping("/luckyCat")
-    public String luckyCat(){
+    public String luckyCat() {
         return "luckyCat";
     }
+
 }

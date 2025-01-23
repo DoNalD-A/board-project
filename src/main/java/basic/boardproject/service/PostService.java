@@ -1,10 +1,8 @@
 package basic.boardproject.service;
 
 import basic.boardproject.domain.Posts;
-import basic.boardproject.dto.PostModifyDto;
-import basic.boardproject.dto.PostNewResponseDto;
-import basic.boardproject.dto.PostResponseAllDto;
-import basic.boardproject.dto.PostResponseOneDto;
+import basic.boardproject.domain.Users;
+import basic.boardproject.dto.*;
 import basic.boardproject.repository.PostRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -23,6 +21,7 @@ public class PostService {
         /*
          * List<Posts>를 postRepostiory.findAll()로 찾기
          * List<Posts>를 List<PostResponseDto>로 수정하여 반환하기*/
+        //게시글 전체 조회
         List<Posts> postsList = postRepository.findAll();
         List<PostResponseAllDto> postResponseAllDtoList = postsList.stream()
                 .map(PostResponseAllDto::new)
@@ -31,6 +30,7 @@ public class PostService {
         return postResponseAllDtoList;
     }
 
+    //게시글 1개 조회
     public PostResponseOneDto findById(Long id) {
 //        Posts posts = postRepository.findById(id);
         Optional<Posts> posts = postRepository.findById(id);
@@ -42,11 +42,13 @@ public class PostService {
 //        return new PostResponseOneDto(posts.get());
     }
 
+    //게시글 생성
     public void save(PostNewResponseDto postNewResponseDto) {
         Posts posts = new Posts(postNewResponseDto);
         postRepository.save(posts);
     }
 
+    //게시글 수정
     public PostModifyDto findByIdModify(Long id) {
         Optional<Posts> posts = postRepository.findById(id);
         if (!posts.isPresent()) {
@@ -65,6 +67,7 @@ public class PostService {
 //        posts.update(postModifyDto.getTitle(), postModifyDto.getContent());
 //        return posts;
 //    }
+    //게시글 수정
     public void update(Long id, PostModifyDto postModifyDto) {
         Posts post = postRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. ID: " + id));
@@ -77,7 +80,10 @@ public class PostService {
         postRepository.save(post);
     }
 
+    //게시글 삭제
     public void deleteById(Long id) {
         postRepository.deleteById(id);
     }
+
+
 }
