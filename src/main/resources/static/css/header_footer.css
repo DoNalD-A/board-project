@@ -129,6 +129,7 @@ button:active {
     transform: scale(0.95); /* 살짝 축소 */
 }
 
+
 button:disabled {
     background-color: #ccc; /* 비활성화 상태 배경 색상 */
     cursor: not-allowed; /* 마우스 포인터 변경 */
