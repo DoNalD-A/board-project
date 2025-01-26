@@ -130,7 +130,6 @@ button:active {
 }
 
 
-
 button:disabled {
     background-color: #ccc; /* 비활성화 상태 배경 색상 */
     cursor: not-allowed; /* 마우스 포인터 변경 */
