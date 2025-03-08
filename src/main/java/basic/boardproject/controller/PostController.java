@@ -91,4 +91,10 @@ public class PostController {
         return "luckyCat";
     }
 
+    //테스트
+    @GetMapping("/test")
+    public String test() {
+        return "test";
+    }
+
 }
