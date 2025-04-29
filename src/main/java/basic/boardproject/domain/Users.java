@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 @Getter
 @NoArgsConstructor
 public class Users {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", updatable = false, nullable = false)
@@ -39,4 +40,5 @@ public class Users {
         this.password = userNewDto.getPassword();
         this.email = userNewDto.getEmail();
     }
+
 }

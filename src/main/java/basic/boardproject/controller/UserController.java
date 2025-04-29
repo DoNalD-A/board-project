@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@RequiredArgsConstructor
 @Controller
+@RequiredArgsConstructor
 public class UserController {
 
     private final UserService userService;
 
     @GetMapping("/signup")
-    public String signUp(){
+    public String signUp() {
         return "signUp";
     }
 
@@ -29,4 +29,5 @@ public class UserController {
 
         return "redirect:/";
     }
+
 }

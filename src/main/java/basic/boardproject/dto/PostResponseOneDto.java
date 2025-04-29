@@ -7,9 +7,9 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
 public class PostResponseOneDto {
     private Long id;
     private String title;
@@ -17,9 +17,12 @@ public class PostResponseOneDto {
     private LocalDateTime created_date;
 
     public PostResponseOneDto(Posts posts) {
+
         this.id = posts.getId();
         this.title = posts.getTitle();
         this.content = posts.getContent();
         this.created_date = posts.getCreated_date();
+
     }
+
 }

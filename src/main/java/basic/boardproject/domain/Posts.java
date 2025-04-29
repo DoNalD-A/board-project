@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 @Getter
 @NoArgsConstructor
 public class Posts {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", updatable = false)
@@ -42,4 +43,5 @@ public class Posts {
         this.title = title;
         this.content = content;
     }
+
 }

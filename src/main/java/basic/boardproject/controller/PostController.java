@@ -1,16 +1,22 @@
 package basic.boardproject.controller;
 
-import basic.boardproject.dto.*;
+import basic.boardproject.dto.PostModifyDto;
+import basic.boardproject.dto.PostNewResponseDto;
+import basic.boardproject.dto.PostResponseAllDto;
+import basic.boardproject.dto.PostResponseOneDto;
 import basic.boardproject.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-@RequiredArgsConstructor
 @Controller
+@RequiredArgsConstructor
 public class PostController {
 
     private final PostService postService;
