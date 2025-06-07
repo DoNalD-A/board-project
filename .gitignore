@@ -62,3 +62,6 @@ coverage/
 # IDE 추가 항목
 *.bak
 *.old
+
+# yml파일
+.yml
